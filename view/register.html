@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Register to Maire now</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body
+    class="bg-black-primary text-white flex justify-center items-center h-screen p-20"
+  >
+    <section class="flex border-2 border-gray-700 rounded-lg w-full h-full">
+      <aside class="hidden lg:block relative w-full">
+        <img
+          src="/img/jumbotron.jpg"
+          alt=""
+          class="rounded-lg absolute w-full h-full object-cover"
+        />
+      </aside>
+      <div class="relative w-full p-5 flex flex-col justify-center">
+        <h1 class="text-4xl font-bold text-purple mb-10">Register</h1>
+        <form class="flex flex-col gap-5">
+          <input
+            type="text"
+            placeholder="Username"
+            class="border-2 border-gray-700 px-2 py-1 rounded-lg"
+            id="username"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            class="border-2 border-gray-700 px-2 py-1 rounded-lg"
+            id="email"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            class="border-2 border-gray-700 px-2 py-1 rounded-lg"
+            id="password"
+          />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            class="border-2 border-gray-700 px-2 py-1 rounded-lg"
+            id="confirm-password"
+          />
+          <p class="text-end">
+            Already have an account?
+            <a
+              href="/view/register.html"
+              class="hover:underline transition duration-300 ease-in-out text-amber-400"
+              >Login here</a
+            >
+          </p>
+          <button
+            onclick="auth('register')"
+            class="font-bold px-2 py-1 text-xl text-center bg-amber-400 rounded-lg text-black"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+    </section>
+    <script src="/js/auth.js"></script>
+  </body>
+</html>

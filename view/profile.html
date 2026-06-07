@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <title>Profile page</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body class="bg-black-primary text-white  ">
+    <nav
+      class="bg-black-primary px-5 py-5 bg-purple sticky top-0 z-10 border-b-4 border-black"
+    >
+      <section
+        class="flex lg:grid lg:grid-cols-4 gap-4 justify-center items-center"
+      >
+        <a
+          class="lg:block hidden text-3xl text-amber-400 font-bold truncate"
+          href="#"
+          >Maire
+        </a>
+        <div class="flex w-full relative col-span-2 justify-center gap-2">
+          <section
+            id="search-box"
+            class="flex w-full border-2 rounded-2xl items-center border-gray-700 hover:border-amber-400 transition ease-in-out duration-300"
+          >
+            <input
+              class="flex w-full rounded-2xl border-none items-center px-5 py-1 justify-center font-normal text-lg outline-none"
+              type="text"
+              placeholder="Search..."
+              id="search"
+            />
+
+            <button class="px-2 cursor-pointer" onclick="search()">
+              <i data-feather="search"></i>
+            </button>
+          </section>
+          <ul
+            id="search-container"
+            class="absolute px-2 hidden top-10 rounded-2xl bg-black-primary overflow-auto w-full min-h-0 max-h-80 border-2 border-gray-700"
+          ></ul>
+        </div>
+        <div class="flex justify-end gap-4">
+          <a
+            id=""
+            class="text-lg w-fit font-semibold rounded-full py-1 text-white hover:underline hover:text-amber-400 transition ease-in-out duration-300"
+            href="/view/cart.html"
+            ><i data-feather="shopping-cart"></i
+          ></a>
+          <a
+            id="profile"
+            class="text-lg w-fit font-semibold rounded-full py-1 text-white hover:underline hover:text-amber-400 transition ease-in-out duration-300"
+            href="/view/profile.html"
+            ><i data-feather="user"></i
+          ></a>
+        </div>
+      </section>
+    </nav>
+    <main class="relative flex gap-5 p-5 items-start">
+      <aside
+        class="sticky top-25 flex w-[25%] items-center flex-col border-2 rounded-2xl p-5 font-semibold text-lg border-gray-700"
+      >
+        <picture>
+          <img
+            src="/img/jumbotron.jpg"
+            alt=""
+            class="aspect-square max-w-40 min-w-40 rounded-full"
+          />
+        </picture>
+        <section class="items-center flex flex-col gap-2 pt-5">
+          <p id="nameA" class="lg:text-lg"></p>
+          <p id="emailA" class="text-xs lg:text-sm text-gray-400"></p>
+          <nav class="flex flex-col gap-1">
+            <a
+              href="#profile"
+              class="flex gap-2 items-center justify-center rounded-2xl px-5 py-2 font-semibold border-gray-700 hover:text-amber-400 transition ease-in-out duration-300"
+              ><i data-feather="user"></i> Profile</a
+            >
+            <a
+              href="#setting"
+              class="flex gap-2 items-center justify-center rounded-2xl px-5 py-2 font-semibold border-gray-700 hover:text-amber-400 transition ease-in-out duration-300"
+              ><i data-feather="settings"></i> Setting</a
+            >
+            <a
+              href="#setting"
+              class="flex gap-2 items-center justify-center rounded-2xl px-5 py-2 font-semibold border-gray-700 hover:text-amber-400 transition ease-in-out duration-300"
+              ><i data-feather="log-out"></i> Logout</a
+            >
+          </nav>
+        </section>
+      </aside>
+      <div class="flex flex-col gap-5 w-full">
+        <section
+          class="w-full flex flex-col border-2 rounded-2xl p-5 font-semibold text-lg border-gray-700"
+        >
+          <div class="flex justify-between py-2">
+            <h1 class="text-2xl font-bold">My Profile</h1>
+            <a
+              href="/view/profile.html?edit=true"
+              class="hover:text-blue-400 text-blue-500 transition duration-300 ease-in-out cursor-pointer"
+            >
+              <i data-feather="edit"></i>
+            </a>
+          </div>
+          <hr class="border-b-2 border-gray-700 rounded-full" />
+          <fieldset class="grid grid-cols-2 gap-5 py-5">
+            <div class="flex flex-col gap-2">
+              <label class="text-sm font-medium text-gray-300" for="first"
+                >First Name</label
+              >
+              <input
+                disabled
+                type="text"
+                name=""
+                id="first"
+                class="profile-data bg-gray-800 text-sm border-2 border-gray-700 rounded-2xl font-medium p-2 text-white focus:outline-none focus:border-gray-500 disabled:opacity-60"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label class="text-sm font-medium text-gray-300" for="last"
+                >Last Name</label
+              >
+              <input
+                disabled
+                type="text"
+                name=""
+                id="last"
+                class="profile-data bg-gray-800 text-sm border-2 border-gray-700 rounded-2xl font-medium p-2 text-white focus:outline-none focus:border-gray-500 disabled:opacity-60"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label class="text-sm font-medium text-gray-300" for="username"
+                >Username</label
+              >
+              <input
+                disabled
+                type="text"
+                name=""
+                id="username"
+                class="profile-data bg-gray-800 text-sm border-2 border-gray-700 rounded-2xl font-medium p-2 text-white focus:outline-none focus:border-gray-500 disabled:opacity-60"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label class="text-sm font-medium text-gray-300" for="email"
+                >Email</label
+              >
+              <input
+                disabled
+                type="email"
+                name=""
+                id="email"
+                class="profile-data bg-gray-800 text-sm border-2 border-gray-700 rounded-2xl font-medium p-2 text-white focus:outline-none focus:border-gray-500 disabled:opacity-60"
+              />
+            </div>
+          </fieldset>
+        </section>
+        <section
+          class="w-full flex flex-col border-2 rounded-2xl p-5 font-semibold text-lg border-gray-700"
+        >
+          <div class="flex justify-between py-2" id="setting">
+            <h1 class="text-2xl font-bold">My Setting</h1>
+            <a
+              href="/view/profile.html?edit=true"
+              class="hover:text-blue-400 text-blue-500 transition duration-300 ease-in-out cursor-pointer"
+            >
+              <i data-feather="edit"></i>
+            </a>
+          </div>
+          <hr class="border-b-2 border-gray-700 rounded-full" />
+          <fieldset class="grid grid-cols-2 gap-x-5 gap-y-4 py-5">
+            <label class="text-end text-sm font-medium text-gray-300" for="c1"
+              >Confirmation Panel</label
+            >
+            <select
+              disabled
+              name="c1"
+              id="c1"
+              class="disabled:opacity-60 bg-gray-800 text-sm border-2 border-gray-700 rounded-2xl font-medium p-2 text-white focus:outline-none focus:border-gray-500"
+            >
+              <option value="any">Anything</option>
+              <option value="partial">Only when clearing cart</option>
+              <option value="none">Nothing</option>
+            </select>
+
+            <label class="text-end text-sm font-medium text-gray-300" for="c2"
+              >Tile Size</label
+            >
+            <select
+              disabled
+              name="c2"
+              id="c2"
+              class="disabled:opacity-60 bg-gray-800 text-sm border-2 border-gray-700 rounded-2xl font-medium p-2 text-white focus:outline-none focus:border-gray-500"
+            >
+              <option value="30">30 cm</option>
+              <option value="40">40 cm</option>
+              <option value="50">50 cm</option>
+              <option value="60">60 cm</option>
+              <option value="70">70 cm</option>
+              <option value="80">80 cm</option>
+            </select>
+
+            <label class="text-end text-sm font-medium text-gray-300" for="c3"
+              >Alert Feedback</label
+            >
+            <select
+              disabled
+              name="c3"
+              id="c3"
+              class="disabled:opacity-60 bg-gray-800 text-sm border-2 border-gray-700 rounded-2xl font-medium p-2 text-white focus:outline-none focus:border-gray-500"
+            >
+              <option value="any">Anything</option>
+              <option value="add">Only when adding item to cart</option>
+              <option value="remove">Only when removing item from cart</option>
+              <option value="none">Nothing</option>
+            </select>
+          </fieldset>
+        </section>
+      </div>
+      <button
+        id="save"
+        class="hidden cursor-pointer text-bold fixed p-2 bottom-5 right-5 text-xl bg-amber-400 rounded-full text-black hover:bg-black-primary hover:text-amber-400 transition ease-in-out duration-300"
+        onclick="save()"
+      >
+        Save Changes
+      </button>
+    </main>
+    <script src="/js/profile.js"></script>
+    <script>
+      feather.replace();
+    </script>
+  </body>
+</html>
