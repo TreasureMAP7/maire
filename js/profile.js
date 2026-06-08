@@ -1,3 +1,17 @@
+let products = []
+let api = "../data.json";
+async function getProduct() {
+  try {
+    let response = await fetch(api);
+    if (!response.ok) throw new Error("Data not found");
+    products = await response.json();
+    showProduct();
+    getUser();
+  } catch (error) {
+    console.log("Error :", error);
+  }
+}
+
 let users = JSON.parse(localStorage.getItem("users"));
 let logged,
   user,
@@ -99,8 +113,10 @@ function search() {
     let match = product.tag.some((tag) =>
       tag.toLowerCase().includes(query.toLowerCase()),
     );
+    console.log(product);
+    
 
-    if (match) {
+    if (match ) {
       el += `<a
                 href="/view/detail.html?id=${product.id}"
                 class="relative group gap-2 flex w-full h-25 items-center py-2 bg-black-primary rounded-2xl font-semibold text-lgborder-2 transition ease-in-out duration-300"
@@ -129,4 +145,5 @@ document.addEventListener("click", (e) => {
   }
 });
 
+getProduct()
 getUser();

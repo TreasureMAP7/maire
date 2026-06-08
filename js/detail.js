@@ -63,7 +63,7 @@ async function detailProduct(id) {
       </div>
       <section class="flex items-center w-full flex-col gap-5 border-2 rounded-2xl p-5 font-semibold text-lg border-gray-700">
           <h1 class="text-2xl font-bold flex items-center">Tile Preview (${Math.ceil(x / tileSize)}&times;${Math.ceil(y / tileSize)}) </h1>
-          <div class="w-fit inline-grid grid-cols-${Math.ceil(x / tileSize)}">
+          <div class="w-fit grid grid-cols-${Math.ceil(x / tileSize)}">
             ${tilePreview}
           </div>
         </section>

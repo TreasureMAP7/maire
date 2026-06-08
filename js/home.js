@@ -8,17 +8,19 @@ async function getProduct() {
     let response = await fetch(api);
     if (!response.ok) throw new Error("Data not found");
     products = await response.json();
-    showProduct();
+    showProduct('any');
     getUser();
   } catch (error) {
     console.log("Error :", error);
   }
 }
 
-function showProduct() {
+function showProduct(category) {
   let el = "";
+  let empty = category == 'any' ? true : false
   products.forEach((product) => {
-    el += `<a
+    if (category == product.placement || empty) {
+      el += `<a
               href="/view/detail.html?id=${product.id}"
               class="cards relative group flex w-full aspect-square items-center justify-center rounded-2xl font-semibold text-lg border-gray-700 hover:border-amber-400 border-2 transition ease-in-out duration-300"
               ><img
@@ -32,6 +34,7 @@ function showProduct() {
                   onclick="addToCart(${product.id})"
                 ><i data-feather="shopping-cart"></i></button>
               </section></a>`;
+    }
   });
 
   document.getElementById("product-container").innerHTML = el;
@@ -99,7 +102,7 @@ function addToCart(id) {
 
 function search() {
   let el = "";
-  let query = document.getElementById("search").value
+  let query = document.getElementById("search").value;
   listContainer.classList.remove("hidden");
 
   products.forEach((product) => {
